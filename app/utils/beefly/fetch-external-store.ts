@@ -1,5 +1,5 @@
 export const fetchExternalStore = async (storeId: string) => {
-  const url = `${process.env.EXTERNAL_URL}/shopify/stores/${storeId}`;
+  const url = `${process.env.EXTERNAL_CORE_URL}/shopify/stores/${storeId}`;
   console.log(url);
 
   const response = await fetch(url, {

@@ -15,7 +15,7 @@ export const createExternalStore = async (
     },
   });
 
-  const result = await fetch(`${process.env.EXTERNAL_URL}/shopify/stores`, {
+  const result = await fetch(`${process.env.EXTERNAL_CORE_URL}/shopify/stores`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
