@@ -3,19 +3,22 @@
 client_id = "af91d7ecd9bbc04982efe007651fba32"
 name = "beefly-app"
 handle = "beefly-app"
-application_url = "https://example.com/"
+application_url = "https://beefly-app-heroku-8c67888d817a.herokuapp.com/"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
 dev_store_url = "beefly-onboarding-store.myshopify.com"
+include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
 scopes = ""
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [
+  "https://beefly-app-heroku-8c67888d817a.herokuapp.com/api/auth"
+]
 
 [webhooks]
 api_version = "2024-10"
