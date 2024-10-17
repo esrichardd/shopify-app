@@ -3,7 +3,7 @@
 client_id = "af91d7ecd9bbc04982efe007651fba32"
 name = "beefly-app"
 handle = "beefly-app"
-application_url = "https://beefly-app-heroku-8c67888d817a.herokuapp.com/"
+application_url = "https://beefly-app-heroku-8c67888d817a.herokuapp.com"
 embedded = true
 
 [build]
