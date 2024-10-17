@@ -3,7 +3,7 @@ export const createExternalStore = async (
 ) => {
   const formattedBody = JSON.stringify({
     id: body.id,
-    name: body.name,
+    name: body.store,
     email: body.email,
     notify: true,
     companyId: body.company,
