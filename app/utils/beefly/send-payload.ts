@@ -1,4 +1,5 @@
 import type { Session } from "@shopify/shopify-api";
+import { getCompanyIdByStoreId } from "./company-id-map";
 
 interface Payload {
   shop: {
@@ -26,7 +27,7 @@ export const sendPayloadToWebhook = async (
       headers: {
         "Content-Type": "application/json",
         "x-store": name,
-        "x-company-id": id,
+        "x-company-id": getCompanyIdByStoreId(id),
       },
       body: JSON.stringify(payload),
     });

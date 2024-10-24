@@ -8,6 +8,7 @@ export const createExternalStore = async (
     notify: true,
     companyId: body.company,
     origin: "SHOPIFY",
+    shopURL: body.shopURL,
     credentials: {
       shopifyCredentialsConfig: {
         accessToken: body.token,

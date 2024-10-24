@@ -20,13 +20,13 @@ import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { admin } = await authenticate.admin(request);
-  const { id, name } = await getShop(admin);
+  const { id, name, myshopifyDomain } = await getShop(admin);
 
   const activeStoreData = await fetchExternalStore(id);
-  return createResponse(name, id, activeStoreData);
+  return createResponse(name, id, myshopifyDomain, activeStoreData);
 };
 
-const createResponse = (shop: string, id: string, activeStoreData: any) => {
+const createResponse = (shop: string, id: string, myshopifyDomain: string, activeStoreData: any) => {
   return json({
     registered: !!activeStoreData,
     store: shop,
@@ -34,10 +34,12 @@ const createResponse = (shop: string, id: string, activeStoreData: any) => {
     company: activeStoreData?.companyId || "",
     email: activeStoreData?.email || "",
     token: activeStoreData?.companyId || "",
+    shopURL: myshopifyDomain,
   });
 };
 
 export default function Index() {
+  
   const settings = useLoaderData<{
     store: string;
     id: string;
@@ -45,6 +47,7 @@ export default function Index() {
     company: string;
     email: string;
     token: string;
+    shopURL: string;
   }>();
   const [isConfigured, setIsConfigured] = useState(settings.registered);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -135,7 +138,7 @@ export default function Index() {
             }
           />
           <Text variant="headingXl" as="h1" alignment="center">
-            Beefly Onboarding
+            Beefly Onboarding v1.1
           </Text>
         </BlockStack>
         <Layout>
@@ -144,9 +147,9 @@ export default function Index() {
               <Form onSubmit={handleSubmit}>
                 <BlockStack gap="400">
                   <TextField
-                    label="Nombre de tienda"
-                    autoComplete="off"
-                    value={settings.store}
+                      label="Nombre de tienda"
+                      autoComplete="off"
+                      value={settings.store}
                   />
                   <TextField
                     label="Id de Tienda"
@@ -158,7 +161,7 @@ export default function Index() {
                     autoComplete="off"
                     value={settings.company || formState.company.value}
                     error={formState.company.error}
-                    onChange={(value) =>
+                    onChange={(value: any) =>
                       setFormState({
                         ...formState,
                         company: { value, error: "" },
@@ -171,7 +174,7 @@ export default function Index() {
                     value={settings.email || formState.email.value}
                     type="email"
                     error={formState.email.error}
-                    onChange={(value) =>
+                    onChange={(value: any) =>
                       setFormState({
                         ...formState,
                         email: { value, error: "" },
@@ -184,7 +187,7 @@ export default function Index() {
                     type={settings.registered ? "password" : "text"}
                     value={settings.token || formState.token.value}
                     error={formState.token.error}
-                    onChange={(value) =>
+                    onChange={(value: any) =>
                       setFormState({
                         ...formState,
                         token: { value, error: "" },
