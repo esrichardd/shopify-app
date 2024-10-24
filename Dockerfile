@@ -5,11 +5,13 @@ EXPOSE 8080
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV SHOPIFY_API_KEY=af91d7ecd9bbc04982efe007651fba32
-ENV SHOPIFY_API_SECRET=9241158f129e7b6eed762c5380a4e93a
+ENV SHOPIFY_API_KEY=e746948a2d94d430b9fd81371d8e85d9
+ENV SHOPIFY_API_SECRET=2acb4a85d04e22e7b7fd9367286ef118
+ENV SCOPES=read_metaobject_definitions,read_metaobjects,read_orders,write_metaobject_definitions,write_metaobjects,write_orders
+
+
 ENV SHOPIFY_APP_URL=https://shipty-shopify-app-563442940248.us-central1.run.app
 ENV SHOPIFY_SCOPES=read_metaobject_definitions,read_metaobjects,read_orders,write_metaobject_definitions,write_metaobjects,write_orders
-ENV SCOPES=read_metaobject_definitions,read_metaobjects,read_orders,write_metaobject_definitions,write_metaobjects,write_orders
 ENV EXTERNAL_CORE_URL=https://shipty-core-ms-bvihbxanma-uc.a.run.app
 ENV EXTERNAL_ADAPTER_URL=https://beefly-shopify-adapter-ms-bvihbxanma-uc.a.run.app
 
