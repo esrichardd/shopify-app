@@ -26,7 +26,12 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   return createResponse(name, id, myshopifyDomain, activeStoreData);
 };
 
-const createResponse = (shop: string, id: string, myshopifyDomain: string, activeStoreData: any) => {
+const createResponse = (
+  shop: string,
+  id: string,
+  myshopifyDomain: string,
+  activeStoreData: any,
+) => {
   return json({
     registered: !!activeStoreData,
     store: shop,
@@ -39,7 +44,6 @@ const createResponse = (shop: string, id: string, myshopifyDomain: string, activ
 };
 
 export default function Index() {
-  
   const settings = useLoaderData<{
     store: string;
     id: string;
@@ -134,7 +138,7 @@ export default function Index() {
             alt="Beefly"
             size="large"
             source={
-              "https://shipty.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.ebc91005.jpeg&w=384&q=75"
+              "https://shipty.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbanner-logo.0f4862f1.png&w=1200&q=75"
             }
           />
           <Text variant="headingXl" as="h1" alignment="center">
@@ -147,9 +151,9 @@ export default function Index() {
               <Form onSubmit={handleSubmit}>
                 <BlockStack gap="400">
                   <TextField
-                      label="Nombre de tienda"
-                      autoComplete="off"
-                      value={settings.store}
+                    label="Nombre de tienda"
+                    autoComplete="off"
+                    value={settings.store}
                   />
                   <TextField
                     label="Id de Tienda"

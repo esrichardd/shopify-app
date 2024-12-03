@@ -3,7 +3,7 @@
 client_id = "af91d7ecd9bbc04982efe007651fba32"
 name = "beefly-app"
 handle = "beefly-app"
-application_url = "https://shipty-shopify-app-563442940248.us-central1.run.app"
+application_url = "https://beefly-563442940248.us-central1.run.app"
 embedded = true
 
 [build]
@@ -17,7 +17,7 @@ scopes = "read_metaobject_definitions,read_metaobjects,read_orders,write_metaobj
 
 [auth]
 redirect_urls = [
-  "https://shipty-shopify-app-563442940248.us-central1.run.app/api/auth"
+  "https://beefly-563442940248.us-central1.run.app/api/auth"
 ]
 
 [webhooks]
